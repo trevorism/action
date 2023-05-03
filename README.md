@@ -4,9 +4,9 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/trevorism/action)
 ![GitHub top language](https://img.shields.io/github/languages/top/trevorism/action)
 
-Trevorism action API
+Trevorism action API. An action is a HTTP request.
 
-Current version: 0.0.1
+Current version: 0.1.0
 
 [Trevorism Action](https://action.trevorism.com/)
 
