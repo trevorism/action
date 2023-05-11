@@ -1,4 +1,4 @@
-package com.trevorism.gcloud.webapi.controller
+package com.trevorism.controller
 
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.MediaType

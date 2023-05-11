@@ -1,5 +1,6 @@
-package com.trevorism.gcloud.webapi.controller
+package com.trevorism.controller
 
+import com.trevorism.controller.RootController
 import org.junit.jupiter.api.Test
 
 /**
