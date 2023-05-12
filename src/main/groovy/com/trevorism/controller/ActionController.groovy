@@ -4,7 +4,6 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.trevorism.data.FastDatastoreRepository
 import com.trevorism.data.Repository
-import com.trevorism.data.model.filtering.ComplexFilter
 import com.trevorism.data.model.filtering.FilterBuilder
 import com.trevorism.data.model.filtering.SimpleFilter
 import com.trevorism.https.DefaultSecureHttpClient
@@ -25,7 +24,7 @@ import com.trevorism.secure.Roles
 @Controller("action")
 class ActionController {
 
-    private Repository<NamedAction> repository = new FastDatastoreRepository<>()
+    private Repository<NamedAction> repository = new FastDatastoreRepository<>(NamedAction)
     private SecureHttpClient secureHttpClient = new DefaultSecureHttpClient()
     private Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create()
 
