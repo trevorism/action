@@ -47,7 +47,7 @@ class ActionController {
 
     @Tag(name = "Action Operations")
     @Operation(summary = "Create a NamedAction **Secure")
-    @Get(value = "/{id}", produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON)
+    @Post(value = "/", produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON)
     @Secure(Roles.USER)
     NamedAction create(@Body NamedAction action) {
         repository.create(action)
