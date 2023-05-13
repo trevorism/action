@@ -53,7 +53,7 @@ dependencies {
     compileOnly("io.micronaut.openapi:micronaut-openapi"){
         exclude module:"slf4j-nop"
     }
-    implementation 'com.trevorism:micronaut-security-utils:0.6.0'
+    implementation 'com.trevorism:micronaut-security-utils:0.7.0'
     implementation 'com.trevorism:datastore-client:2.8.0'
     implementation 'com.trevorism:secure-http-utils:2.1.0'
     implementation 'com.google.code.gson:gson:2.10.1'
