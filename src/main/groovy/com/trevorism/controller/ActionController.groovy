@@ -6,7 +6,6 @@ import com.trevorism.data.FastDatastoreRepository
 import com.trevorism.data.Repository
 import com.trevorism.data.model.filtering.FilterBuilder
 import com.trevorism.data.model.filtering.SimpleFilter
-import com.trevorism.https.DefaultSecureHttpClient
 import com.trevorism.https.SecureHttpClient
 import com.trevorism.model.NamedAction
 import io.micronaut.http.MediaType
@@ -24,9 +23,15 @@ import com.trevorism.secure.Roles
 @Controller("action")
 class ActionController {
 
-    private Repository<NamedAction> repository = new FastDatastoreRepository<>(NamedAction)
-    private SecureHttpClient secureHttpClient = new DefaultSecureHttpClient()
-    private Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create()
+    private Repository<NamedAction> repository
+    private Gson gson
+    private SecureHttpClient secureHttpClient
+
+    ActionController(SecureHttpClient secureHttpClient){
+        this.secureHttpClient = secureHttpClient
+        this.repository = new FastDatastoreRepository(NamedAction, secureHttpClient)
+        this.gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create()
+    }
 
     @Tag(name = "Action Operations")
     @Operation(summary = "Get a list of all NamedActions **Secure")
@@ -78,19 +83,18 @@ class ActionController {
             throw new RuntimeException("Action not found: $name")
 
         String request = override.size() == 0 ? action.requestJson : gson.toJson(override)
-        String correlationId = UUID.randomUUID().toString()
 
         switch(action.httpMethod.toUpperCase()){
             case "GET":
-                return secureHttpClient.get(action.endpoint, correlationId)
+                return secureHttpClient.get(action.endpoint)
             case "POST":
-                return secureHttpClient.post(action.endpoint, request, correlationId)
+                return secureHttpClient.post(action.endpoint, request)
             case "PUT":
-                return secureHttpClient.put(action.endpoint, request, correlationId)
+                return secureHttpClient.put(action.endpoint, request)
             case "PATCH":
-                return secureHttpClient.patch(action.endpoint, correlationId)
+                return secureHttpClient.patch(action.endpoint, request)
             case "DELETE":
-                return secureHttpClient.delete(action.endpoint, correlationId)
+                return secureHttpClient.delete(action.endpoint)
             default:
                 throw new RuntimeException("Unsupported HTTP Method: ${action.httpMethod}")
         }

@@ -53,9 +53,8 @@ dependencies {
     compileOnly("io.micronaut.openapi:micronaut-openapi"){
         exclude module:"slf4j-nop"
     }
-    implementation 'com.trevorism:micronaut-security-utils:0.7.1'
-    implementation 'com.trevorism:datastore-client:2.8.0'
-    implementation 'com.trevorism:secure-http-utils:2.1.0'
+    implementation 'com.trevorism:micronaut-utility-beans:0.1.0'
+    implementation 'com.trevorism:datastore-client:3.1.0'
     implementation 'com.google.code.gson:gson:2.10.1'
 
     runtimeOnly("ch.qos.logback:logback-classic")
@@ -87,7 +86,7 @@ appengine {
     stage.artifact = "${buildDir}/libs/${project.name}-all.jar"
     deploy {
         projectId = "trevorism-action"
-        version = "0-1-0"
+        version = "0-2-0"
         stopPreviousVersion = true
         promote = true
 
