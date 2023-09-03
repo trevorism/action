@@ -87,7 +87,7 @@ tasks.withType(GroovyCompile) {
 appengine {
     deploy {
         projectId = "trevorism-action"
-        version = "0-2-0"
+        version = "0-2-1"
         stopPreviousVersion = true
         promote = true
     }
