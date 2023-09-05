@@ -1,5 +1,5 @@
 runtime: java17
-entrypoint: java -jar action-0.2.10-all.jar
+entrypoint: java -jar action-0.2.11-all.jar
 handlers:
   - url: /.*
     secure: always

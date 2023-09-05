@@ -6,7 +6,7 @@
 
 Trevorism action API. An action is a HTTP request.
 
-Current version: 0.2.10
+Current version: 0.2.11
 
 [Trevorism Action](https://action.trevorism.com/)
 
