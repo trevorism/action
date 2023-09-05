@@ -85,9 +85,10 @@ tasks.withType(GroovyCompile) {
 }
 
 appengine {
+    stage.artifact = "${buildDir}/libs/${project.name}-${project.version}-all.jar"
     deploy {
         projectId = "trevorism-action"
-        version = "0-2-6"
+        version = "0-2-9"
         stopPreviousVersion = true
         promote = true
     }
