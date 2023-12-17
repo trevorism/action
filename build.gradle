@@ -30,7 +30,6 @@ plugins {
 
 apply plugin: 'com.google.cloud.tools.appengine'
 apply plugin: "com.trevorism.gradle.acceptance"
-apply plugin: "com.trevorism.gradle.versioning"
 
 group = "com.trevorism"
 
